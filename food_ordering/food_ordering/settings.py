@@ -82,13 +82,14 @@ WSGI_APPLICATION = 'food_ordering.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'foods',
+        'NAME': 'coffee',
         'USER': 'root',
-        'PASSWORD': 'Bilab@3518',
+        'PASSWORD': 'Bilab@123',
         'HOST': 'localhost',
-        'PORT': '3306',
-        'OPTIONS': '',
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLE'"
+        'PORT': '3307',
+        'OPTIONS': {
+            'init_command': "SET sql_mode = 'STRICT_TRANS_TABLES'"
+        }
     }
 }
 
