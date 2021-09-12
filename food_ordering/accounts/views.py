@@ -14,9 +14,20 @@ def logout_user(request):
     return redirect('/login')
 
 def login_user(request):
+    if request.method == 'POST':
+        form = Loginform(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            user = authenticate(request, username=data['username'], password=data['password'])
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+            else:
+                messages.add_message(request, messages.ERROR, "Invalid user credentials")
+                return render(request, 'accounts/login.html', {'form_login': form})
     context = {
         'form_login': Loginform,
-        'activate_login': 'activate'
+        'activate_login': 'active'
     }
     return render(request, 'accounts/login.html', context)
 
@@ -29,12 +40,12 @@ def register_user(request):
             return redirect('/login')
         else:
             messages.add_message(request, messages.ERROR, 'Unable to Register')
-            return render('accounts/register.html', {'from_register': form})
+            return redirect('/register')
+            #return render(request, 'accounts/register.html', {'from_register': form})
 
     context = {
         'form_register': UserCreationForm,
-        'activate_register': 'activate'
+        'activate_register': 'active'
     }
     return render(request, 'accounts/register.html', context)
-
 

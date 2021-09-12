@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .froms import CategoryForm, FoodForm
 
-# Create your views here.
+def category_from(request):
+    context = {
+        'form_category': CategoryForm,
+        'activate_category': 'active'
+    }
+
+    return render(request, 'foods/category_form.html', context)
+
