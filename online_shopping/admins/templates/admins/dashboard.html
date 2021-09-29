@@ -1,0 +1,68 @@
+{% extends 'layout-admin.html' %}
+{% load static %}
+{% block title %}
+<title>Admin-Dashboard</title>
+{% endblock %}
+{% block main_content %}
+<style>
+    .card-body a{
+    text-decoration:none;
+    color:#fff;
+    }
+
+    .card-body a:hover{
+    color:orange;
+    }
+
+</style>
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Products</div>
+                <div class="card-body">
+                    <a href="/products/get_product">
+                        <h1 class="card-title text-center">{{product}}</h1></a>
+
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+            <div class="card-header text-center">Total Users</div>
+            <div class="card-body">
+                <a href="/admins/users"><h1 class="card-title text-center">{{user}}</h1></a>
+
+            </div>
+        </div>
+        </div>
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Category</div>
+                <div class="card-body">
+                    <a href="/products/get_category"><h1 class="card-title text-center">{{category}}</h1></a>
+                </div>
+            </div>
+                <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+                    <div class="card-header text-center">Total Admins</div>
+                    <div class="card-body">
+                        <a href="/admins/admins"> <h1 class="card-title text-center">{{admin}}</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col">
+            <div class="card text-white bg-secondary mb-3" style="max-width: 35rem;">
+                <div class="card-header text-center">Total Order</div>
+                <div class="card-body">
+                    <a href="/products/get_order">
+                        <h1 class="card-title text-center">{{order}}</h1></a>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

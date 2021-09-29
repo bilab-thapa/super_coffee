@@ -1,0 +1,49 @@
+<!--    User Header-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-warning">
+  <div class="container-fluid">
+    <a class="navbar-brand ps-4" href="/products/homepage"><b>Super Coffee</b></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+<!--    Navigation Buttons-->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="padding-left:40%">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/products/homepage"><b>Home</b></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link {{activate_product_user}}" href="/products/get_product_user"><b>Products</b></a>
+        </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+          <a class="nav-link {{activate_my_cart}}" href="/products/mycart"><b>Cart</b></a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link {{activate_myorder}}" href="/products/my_order"><b>MyOrder</b></a>
+        </li>
+          <li class="nav-item">
+           <a class="nav-link {{activate_profile}}" href="/profile"><b>{{request.user.username}}</b></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
+        </li>
+        {% else %}
+          <li class="nav-item">
+          <a class="nav-link {{activate_login}}" href="/login"><b>Login</b></a>
+        </li>
+          <li class="nav-item">
+          <a class="nav-link {{activate_register}}" href="/register"><b>Register</b></a>
+        </li>
+
+        {% endif %}
+<!--        Search Button-->
+        <form  method="GET" action="search" class="d-flex">
+            <input name="z" class="form-control me-2 my-2, my-lg-0, me-sm-0, my-sm-0" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit" style = "background-color:pink;border-color:black;color:black;">Search</button>
+        </form>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

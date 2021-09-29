@@ -1,0 +1,45 @@
+{% extends 'layout-admin.html' %}
+{% block title %}
+<h1 style="text-align:center">All Products</h1>
+{% endblock%}
+
+{% block main_content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-10 offset-md-1">
+            <h1 class="text-center">All Products</h1>
+            {% include 'messages.html' %}
+            <div class="card py-2 px-2">
+                <a class="btn btn-primary btn-sm ms-auto"
+                href="/products/product_form"
+                >Add New Product</a>
+                <table class="table-striped">
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Image</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for i in products %}
+                    <tr>
+                        <td> {{ i.product_name }}</td>
+                        <td> {{ i.product_price }}</td>
+                        <td> {{ i.category.category_name }}</td>
+                        <td><img src="/{{i.product_image}}" width="200"> </td>
+                        <td><a class="btn btn-primary btn-sm" href="/products/update_product/{{i.id}}">Edit</a> &nbsp;
+                            <a class="btn btn-danger btn-sm"
+                               href="/products/delete_product/{{i.id}}"
+                               onclick="return confirm('Are you sure want to delete this Product?')" >Delete</a></td>
+
+                    </tr>
+                    {% endfor %}
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
