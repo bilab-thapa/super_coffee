@@ -1,14 +1,11 @@
 {% extends 'layout.html' %}
 {% load bootstrap %}
 {% block title %}
-    <title>Login</title>
+<title>Login</title>
 {% endblock%}
-
 {% block main_content %}
-
 <div class="container">
 <div class="row">
-
     <div class="col-md-6 offset-md-3">
         <h1 class="text-center">Login</h1>
           {% include 'messages.html'%}
@@ -26,11 +23,6 @@
     var form_fields = document.getElementsByTagName('input')
     form_fields[2].placeholder = "Enter username",
     form_fields[3].placeholder = "Enter password"
-
-
-
-
-
    for(field in form_fields){
    form_fields[field].className += ' my-3'
    }

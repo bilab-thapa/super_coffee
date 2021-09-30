@@ -1,10 +1,8 @@
 {% extends 'layout.html' %}
 {% load static %}
-
 {% block title %}
 <title>Homepage</title>
 {% endblock title %}
-
 
 {% block main_content %}
 <div id="carouselExampleDark" class="carousel carousel-light slide" data-bs-ride="carousel">
@@ -15,20 +13,20 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="10000">
-      <img src="{% static 'images/s2.jpg'%}" class="d-block w-100" alt="..." height = "600" width = "400">
+      <img src="{% static 'images/main1.jpg'%}" class="d-block w-100" alt="..." height = "600" width = "400">
       <div class="carousel-caption d-none d-md-block">
           <h5>SUPER COFFEE POWER</h5>
         <p>THE WORLD'S BEST COFFEE</p>
       </div>
     </div>
     <div class="carousel-item" data-bs-interval="2000">
-      <img src="{% static 'images/s1.jpg'%}" class="d-block w-100" alt="..." height = "600" width = "400">
+      <img src="{% static 'images/main2.jpg'%}" class="d-block w-100" alt="..." height = "600" width = "400">
       <div class="carousel-caption d-none d-md-block">
           <h5>ENERGIZE YOUR DAY</h5>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="{% static 'images/s3.jpg'%} " class="d-block w-100" alt="..." height = "600" width = "400">
+      <img src="{% static 'images/main3.jpg'%} " class="d-block w-100" alt="..." height = "600" width = "400">
       <div class="carousel-caption d-none d-md-block">
           <h5>COFFEE FIRST</h5>
       </div>
@@ -45,7 +43,7 @@
 </div>
 
 <div class="container mt-3">
-    <h1 class="text-center">TOP LINE COFFEE</h1>
+    <h1 class="text-center">GET THE BEST COFFEE</h1>
     <div class="row justify-content-around">
         {% for i in products %}
         <div class="card col-md-3 m-3">
